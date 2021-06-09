@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Counter from './components/Counter';
 import useLocalStorage from './hooks/useLocalStorage';
+import soundFile from './sounds/src_res_sounds_ineedmoney.mp3'
 
 function App() {
   const [nbOperations, setNbOperations] = useLocalStorage('nbOperations', 0)
@@ -16,8 +17,8 @@ function App() {
       const disable = async () => {
         setIsDisabled(true)
         try {
-          //const audio = new Audio(soundFile)
-          //await audio.play()
+          const audio = new Audio(soundFile)
+          await audio.play()
         } catch (e) {
           console.log(e)
         }
